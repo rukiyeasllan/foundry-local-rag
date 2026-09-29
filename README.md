@@ -28,3 +28,14 @@ Minimum similarity threshold: 0.35
 
 ## Run
 python main.py
+
+## Evaluation
+
+A strict functional test with six predefined queries was performed.
+
+- 6/6 tests passed
+- 4/4 document-supported queries answered
+- 2/2 unsupported queries correctly rejected
+- Average end-to-end query time: 22.14 seconds
+
+See EVALUATION.md for details.

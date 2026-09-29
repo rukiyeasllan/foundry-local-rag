@@ -78,6 +78,11 @@ class LocalRAG:
         )
 
         print()
+        print("Embedding modeli bellege yukleniyor...")
+        self.embedding_model.load()
+
+        print("Chat modeli bellege yukleniyor...")
+        self.chat_model.load()
         print("Sistem hazir.")
 
 
@@ -100,8 +105,6 @@ class LocalRAG:
 
 
     def embed_query(self, query):
-        self.embedding_model.load()
-
         try:
             with EmbeddingsSession(
                 self.embedding_model
@@ -127,7 +130,7 @@ class LocalRAG:
                                 ).copy()
 
         finally:
-            self.embedding_model.unload()
+            pass
 
         raise RuntimeError(
             "Sorgu embeddingi uretilemedi."
@@ -197,10 +200,8 @@ class LocalRAG:
             "bilgileri kullan. "
             "Kaynaklarda olmayan bilgi ekleme. "
             "Tahmin yapma. "
-            "Sorunun cevabi kaynaklarda yoksa "
-            f"tam olarak '{FALLBACK}' yaz. "
             "Cevabi Turkce, acik ve en fazla "
-            "3 cumle halinde ver. "
+            "2 kisa cumle halinde ver. 50 kelimeyi gecme. "
             "Gereksiz tekrar yapma."
         )
 
@@ -212,8 +213,6 @@ class LocalRAG:
 
         answer_parts = []
 
-        self.chat_model.load()
-
         try:
             with ChatSession(
                 self.chat_model
@@ -223,7 +222,7 @@ class LocalRAG:
                     RequestOptions(
                         search=SearchOptions(
                             temperature=0.0,
-                            max_output_tokens=120
+                            max_output_tokens=80
                         )
                     )
                 )
@@ -271,7 +270,7 @@ class LocalRAG:
                                         )
 
         finally:
-            self.chat_model.unload()
+            pass
 
         answer = "".join(
             answer_parts
@@ -388,3 +387,12 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
+
+
+
+
