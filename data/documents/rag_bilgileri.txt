@@ -1,0 +1,7 @@
+﻿Retrieval-Augmented Generation, yani RAG, bir dil modelinin cevap üretmeden önce harici bir bilgi kaynağından ilgili bilgileri bulmasını sağlar. Sistem önce kullanıcının sorusuna benzer belge parçalarını getirir, ardından bu parçaları dil modeline bağlam olarak verir.
+
+Microsoft Foundry Local, yapay zeka modellerinin kullanıcının kendi cihazında çalıştırılmasına imkan sağlar. Bu sayede model çıkarımı bulut bağlantısı olmadan yerel olarak gerçekleştirilebilir. Yerel çalıştırma gizlilik, çevrimdışı kullanım ve veri kontrolü açısından avantaj sağlayabilir.
+
+Embedding, metnin anlamsal içeriğini sayısal bir vektörle temsil eder. Benzer anlam taşıyan metinlerin embedding vektörleri de birbirine yakın olur. RAG sistemlerinde kullanıcının sorusu ve belge parçaları embedding vektörlerine dönüştürülerek benzerlik hesaplanır.
+
+SQLite hafif ve sunucusuz bir ilişkisel veritabanıdır. Bu projede belge parçaları, kaynak bilgileri ve embedding vektörleri yerel SQLite veritabanında saklanmaktadır.
