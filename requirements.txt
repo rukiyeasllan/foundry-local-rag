@@ -1,0 +1,2 @@
+﻿foundry-local-sdk==2.0.1
+numpy==2.5.3
